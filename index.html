@@ -7,38 +7,49 @@
   <title>KillaCode Tip Calculator</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>KillaCode Tip Calculator</h1>
-  <p>Calculate your tip and total bill.</p>
 
-  <label for="bill">Bill amount ($)</label>
-  <input type="number" id="bill" placeholder="Enter bill amount">
+  <main class="calculator">
 
-  <label for="tip">Tip percentage (%)</label>
-  <input type="number" id="tip" value="20">
+    <h1>KillaCode 💜</h1>
+    <p>Smart Tip Calculator</p>
 
-  <button onclick="calculateTip()">Calculate</button>
+    <label for="bill">Bill Amount ($)</label>
+    <input type="number" id="bill" placeholder="Enter bill amount" min="0" step="0.01">
 
-  <h2 id="result">Your total will appear here.</h2>
+    <label for="tip">Tip Percentage (%)</label>
+    <input type="number" id="tip" value="20" min="0" max="100">
+
+    <button onclick="calculateTip()">Calculate Total</button>
+
+    <h2 id="result">Your total will appear here.</h2>
+
+  </main>
 
   <script>
     function calculateTip() {
+
       const bill = Number(document.getElementById("bill").value);
       const tip = Number(document.getElementById("tip").value);
 
-      if (bill <= 0 || tip < 0) {
-        document.getElementById("result").textContent =
-          "Please enter valid amounts.";
+      const result = document.getElementById("result");
+
+      if (!Number.isFinite(bill) || !Number.isFinite(tip) ||
+          bill <= 0 || tip < 0 || tip > 100) {
+
+        result.textContent = "Please enter valid amounts.";
         return;
       }
 
       const tipAmount = bill * (tip / 100);
       const total = bill + tipAmount;
 
-      document.getElementById("result").textContent =
+      result.innerHTML =
         "Tip: $" + tipAmount.toFixed(2) +
-        " | Total: $" + total.toFixed(2);
+        "<br>Total: $" + total.toFixed(2);
     }
   </script>
+
 </body>
 </html>
