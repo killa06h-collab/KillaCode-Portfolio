@@ -72,3 +72,51 @@ button:hover {
   text-align: center;
   line-height: 1.7;
 }
+
+.tip-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tip-options button {
+  margin: 0;
+  padding: 12px 4px;
+  background: #39304f;
+  color: white;
+}
+
+.tip-options button.active {
+  background: #a77bff;
+  color: #171522;
+}
+
+#calculate {
+  margin-top: 25px;
+}
+
+.reset {
+  margin-top: 10px;
+  background: #39304f;
+  color: white;
+}
+
+#results {
+  margin-top: 25px;
+  padding: 18px;
+  border-radius: 12px;
+  background: #171522;
+}
+
+#results h2 {
+  color: #c4a7ff;
+  text-align: center;
+}
+
+#results p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: white;
+}
