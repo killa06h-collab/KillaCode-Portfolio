@@ -4,11 +4,58 @@ const list = document.getElementById("expense-list");
 const search = document.getElementById("search");
 const filter = document.getElementById("filter");
 
+let expenseChart;
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 function saveExpenses() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
 }
+
+function updateChart() {
+  const categories = ["Food", "Bills", "Transportation", "Shopping", "Other"];
+
+  const totals = categories.map(category => {
+    return expenses
+      .filter(expense => expense.category === category)
+      .reduce((sum, expense) => sum + expense.amount, 0);
+  });
+
+  const ctx = document.getElementById("expense-chart");
+
+  if (expenseChart) {
+    expenseChart.destroy();
+  }
+
+  expenseChart = new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: categories,
+      datasets: [{
+        data: totals,
+        backgroundColor: [
+          "#c4a5ff",
+          "#ff8fab",
+          "#8ecae6",
+          "#ffd166",
+          "#a8dadc"
+        ],
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          labels: {
+            color: "#ffffff"
+          }
+        }
+      }
+    }
+  });
+}
+
 
 function renderExpenses() {
   list.innerHTML = "";
@@ -25,6 +72,7 @@ function renderExpenses() {
       expense.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
+    updateChart();
   });
 
   filtered.forEach(expense => {
