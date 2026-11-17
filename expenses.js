@@ -72,7 +72,6 @@ function renderExpenses() {
       expense.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
-    updateChart();
   });
 
   filtered.forEach(expense => {
@@ -101,6 +100,7 @@ function renderExpenses() {
 
   document.getElementById("total").textContent = `$${total.toFixed(2)}`;
   document.getElementById("count").textContent = expenses.length;
+  updateChart();
 }
 
 function editExpense(id) {
