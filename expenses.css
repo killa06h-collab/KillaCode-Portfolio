@@ -88,3 +88,20 @@ button:hover {
     flex-direction: column;
   }
 }
+
+
+.chart-section {
+  background: #292435;
+  padding: 20px;
+  margin: 25px 0;
+  border-radius: 12px;
+}
+
+.chart-section h2 {
+  color: #c4a5ff;
+}
+
+#expense-chart {
+  width: 100%;
+  max-height: 300px;
+}
