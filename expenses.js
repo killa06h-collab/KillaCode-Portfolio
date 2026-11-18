@@ -6,9 +6,56 @@ const filter = document.getElementById("filter");
 
 let expenseChart;
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+let incomes = JSON.parse(localStorage.getItem("incomes")) || [];
+
+const incomeForm = document.getElementById("income-form");
 
 function saveExpenses() {
   localStorage.setItem("expenses", JSON.stringify(expenses));
+  localStorage.setItem("incomes", JSON.stringify(incomes));
+}
+
+incomeForm.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const description =
+    document.getElementById("income-description").value.trim();
+
+  const amount =
+    Number(document.getElementById("income-amount").value);
+
+  if (!description || !Number.isFinite(amount) || amount <= 0) return;
+
+  incomes.push({
+    id: crypto.randomUUID(),
+    description,
+    amount
+  });
+
+  saveExpenses();
+  updateDashboard();
+  incomeForm.reset();
+});
+
+function updateDashboard() {
+  const totalExpenses = expenses.reduce(
+    (sum, item) => sum + item.amount, 0
+  );
+
+  const totalIncome = incomes.reduce(
+    (sum, item) => sum + item.amount, 0
+  );
+
+  const balance = totalIncome - totalExpenses;
+
+  document.getElementById("total").textContent =
+    `$${totalExpenses.toFixed(2)}`;
+
+  document.getElementById("income-total").textContent =
+    `$${totalIncome.toFixed(2)}`;
+
+  document.getElementById("balance").textContent =
+    `$${balance.toFixed(2)}`;
 }
 
 function updateChart() {
@@ -105,6 +152,7 @@ const filtered = expenses.filter(expense => {
   document.getElementById("count").textContent = expenses.length;
 
   updateChart();
+  updateDashboard();
 }
 
 function editExpense(id) {
@@ -162,3 +210,4 @@ search.addEventListener("input", renderExpenses);
 filter.addEventListener("change", renderExpenses);
 
 renderExpenses();
+updateDashboard();
