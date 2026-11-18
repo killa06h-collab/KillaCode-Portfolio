@@ -63,15 +63,18 @@ function renderExpenses() {
   const searchTerm = search.value.toLowerCase();
   const selectedCategory = filter.value;
 
-  const filtered = expenses.filter(expense => {
-    const matchesSearch =
-      expense.description.toLowerCase().includes(searchTerm);
+  
+const filtered = expenses.filter(expense => {
+  const matchesSearch =
+    expense.description.toLowerCase().includes(searchTerm);
 
-    const matchesCategory =
-      selectedCategory === "All" ||
-      expense.category === selectedCategory;
+  const matchesCategory =
+    selectedCategory === "All" ||
+    expense.category === selectedCategory;
 
-    return matchesSearch && matchesCategory;
+  return matchesSearch && matchesCategory;
+});
+
   });
 
   filtered.forEach(expense => {
@@ -100,6 +103,7 @@ function renderExpenses() {
 
   document.getElementById("total").textContent = `$${total.toFixed(2)}`;
   document.getElementById("count").textContent = expenses.length;
+
   updateChart();
 }
 
