@@ -122,8 +122,6 @@ const filtered = expenses.filter(expense => {
   return matchesSearch && matchesCategory;
 });
 
-  });
-
   filtered.forEach(expense => {
     const item = document.createElement("li");
     const details = document.createElement("span");
