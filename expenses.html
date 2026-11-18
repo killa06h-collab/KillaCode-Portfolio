@@ -4,94 +4,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KillaCode Expense Tracker</title>
+
+  <title>KillaCode Finance Dashboard</title>
+
   <link rel="stylesheet" href="expenses.css">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="expenses.js" defer></script>
 </head>
+
 <body>
   <main class="container">
-    <h1>💸 Expense Tracker</h1>
-    <p>Track your money. Take control.</p>
 
-<section class="summary">
-  <div>
-    <h3>Total Income</h3>
-    <p id="income-total">$0.00</p>
-  </div>
+    <header class="header">
+      <h1>💜 KillaCode Finance</h1>
+      <p>Track your money. Take control.</p>
+    </header>
 
-  <div>
-    <h3>Total Expenses</h3>
-    <p id="total">$0.00</p>
-  </div>
+    <!-- DASHBOARD SUMMARY -->
+    <section class="summary">
 
-  <div>
-    <h3>Available Balance</h3>
-    <p id="balance">$0.00</p>
-  </div>
+      <div class="summary-card income-card">
+        <h3>Total Income</h3>
+        <p id="income-total">$0.00</p>
+      </div>
 
-  <div>
-    <h3>Transactions</h3>
-    <p id="count">0</p>
-  </div>
-</section>
+      <div class="summary-card expense-card">
+        <h3>Total Expenses</h3>
+        <p id="total">$0.00</p>
+      </div>
 
-    <h2>Add Income</h2>
+      <div class="summary-card balance-card">
+        <h3>Available Balance</h3>
+        <p id="balance">$0.00</p>
+      </div>
 
-<form id="income-form">
-  <input
-    id="income-description"
-    placeholder="Income source"
-    required
-  >
+      <div class="summary-card count-card">
+        <h3>Transactions</h3>
+        <p id="count">0</p>
+      </div>
 
-  <input
-    id="income-amount"
-    type="number"
-    min="0.01"
-    step="0.01"
-    placeholder="Amount ($)"
-    required
-  >
+    </section>
 
-  <button type="submit">Add Income</button>
-</form>
-    
-    <form id="expense-form">
-      <input id="description" placeholder="What did you spend on?" required>
-      <input id="amount" type="number" min="0.01" step="0.01"
-        placeholder="Amount ($)" required>
-      <select id="category">
-        <option value="Food">Food</option>
-        <option value="Bills">Bills</option>
-        <option value="Transportation">Transportation</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Other">Other</option>
-      </select>
-      <button type="submit">Add Expense</button>
-    </form>
-<section class="chart-section">
-  <h2>Spending by Category</h2>
-  <canvas id="expense-chart"></canvas>
-</section>
-    
-    <h2>Transactions</h2>
+    <!-- ADD INCOME -->
+    <section class="panel">
+      <h2>💰 Add Income</h2>
 
-<input
-  id="search"
-  type="search"
-  placeholder="Search expenses..."
->
+      <form id="income-form">
 
-<select id="filter">
-  <option value="All">All Categories</option>
-  <option value="Food">Food</option>
-  <option value="Bills">Bills</option>
-  <option value="Transportation">Transportation</option>
-  <option value="Shopping">Shopping</option>
-  <option value="Other">Other</option>
-</select>
-    <ul id="expense-list"></ul>
+        <input
+          id="income-description"
+          type="text"
+          placeholder="Where did the money come from?"
+          required
+        >
+
+        <input
+          id="income-amount"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="Amount ($)"
+          required
+        >
+
+        <button type="submit">Add Income</button>
+
+      </form>
+    </section>
+
+    <!-- ADD EXPENSE -->
+    <section class="panel">
+      <h2>💸 Add Expense</h2>
+
+      <form id="expense-form">
+
+        <input
+          id="description"
+          type="text"
+          placeholder="What did you spend on?"
+          required
+        >
+
+        <input
+          id="amount"
+          type="number"
+          min="0.01"
+          step="0.01"
+          placeholder="Amount ($)"
+          required
+        >
+
+        <select id="category">
+          <option value="Food">Food</option>
+          <option value="Bills">Bills</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <button type="submit">Add Expense</button>
+
+      </form>
+    </section>
+
+    <!-- SPENDING CHART -->
+    <section class="panel chart-section">
+      <h2>📊 Spending by Category</h2>
+      <canvas id="expense-chart"></canvas>
+    </section>
+
+    <!-- INCOME HISTORY -->
+    <section class="panel">
+      <h2>💵 Income History</h2>
+      <ul id="income-list"></ul>
+    </section>
+
+    <!-- EXPENSE HISTORY -->
+    <section class="panel">
+      <h2>🧾 Expense History</h2>
+
+      <div class="filters">
+
+        <input
+          id="search"
+          type="search"
+          placeholder="Search expenses..."
+        >
+
+        <select id="filter">
+          <option value="All">All Categories</option>
+          <option value="Food">Food</option>
+          <option value="Bills">Bills</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Other">Other</option>
+        </select>
+
+      </div>
+
+      <ul id="expense-list"></ul>
+    </section>
+
+    <footer>
+      <p>Built with 💜 by KillaCode</p>
+    </footer>
+
   </main>
 </body>
 </html>
