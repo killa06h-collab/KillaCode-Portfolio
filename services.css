@@ -403,3 +403,27 @@ footer {
         padding: 70px 20px;
     }
 }
+
+
+/* Email Contact Button */
+.contact-button {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #c6a875;
+  color: #171715;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 1px solid #c6a875;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background: transparent;
+  color: #dfc99f;
+  border-color: #dfc99f;
+  transform: translateY(-2px);
+}
