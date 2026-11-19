@@ -1,0 +1,306 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #171522;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 22px 8%;
+    background: #252136;
+    border-bottom: 1px solid #493b65;
+}
+
+.logo {
+    color: #c4a7ff;
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo span {
+    margin-left: 5px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: #d5c9ee;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #c4a7ff;
+}
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #252136, #171522);
+}
+
+.eyebrow {
+    color: #b99aff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #b99aff;
+}
+
+.hero-text {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #c5bfd6;
+}
+
+.button {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 9px;
+    background: #a77bff;
+    color: #171522;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: #c4a7ff;
+    transform: translateY(-2px);
+}
+
+.intro {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+    padding: 65px 20px 35px;
+}
+
+h2 {
+    color: #c4a7ff;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.intro p,
+.section-description {
+    color: #c5bfd6;
+}
+
+.services {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 20px 75px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.service-card,
+.price-card {
+    background: #252136;
+    border: 1px solid #493b65;
+    border-radius: 15px;
+    padding: 28px;
+}
+
+.service-card {
+    transition: 0.2s;
+}
+
+.service-card:hover,
+.price-card:hover {
+    border-color: #a77bff;
+    transform: translateY(-4px);
+}
+
+.service-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.service-card h3,
+.price-card h3 {
+    color: #c4a7ff;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.service-card p,
+.price-card p,
+.service-card li,
+.price-card li {
+    color: #c5bfd6;
+    font-size: 14px;
+}
+
+ul {
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+.pricing {
+    background: #201c30;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.section-description {
+    max-width: 600px;
+    margin: 0 auto 35px;
+}
+
+.price-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    text-align: left;
+}
+
+.price-card {
+    position: relative;
+}
+
+.price {
+    color: #c4a7ff !important;
+    font-size: 32px !important;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.featured {
+    border: 2px solid #a77bff;
+}
+
+.popular {
+    display: inline-block;
+    color: #c4a7ff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.pricing-note {
+    color: #a9a1bd;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.process {
+    max-width: 1100px;
+    margin: auto;
+    padding: 75px 20px;
+    text-align: center;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+    text-align: left;
+}
+
+.steps div {
+    background: #252136;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.steps span {
+    color: #a77bff;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.steps h3 {
+    color: #c4a7ff;
+    margin: 10px 0;
+}
+
+.steps p {
+    color: #c5bfd6;
+    font-size: 14px;
+}
+
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background: #252136;
+}
+
+.contact p:not(.eyebrow) {
+    color: #c5bfd6;
+    margin: 10px auto 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #a9a1bd;
+    font-size: 12px;
+}
+
+@media (max-width: 850px) {
+    .price-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .services,
+    .price-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 75px 20px;
+    }
+}
